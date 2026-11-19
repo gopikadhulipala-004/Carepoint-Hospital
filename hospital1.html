@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hospital appointment booking form">
+    <title>CarePoint - Appointment Booking</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf4f4;
+            margin: 0;
+            padding: 30px 15px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            color: #087f83;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #666;
+        }
+
+        h2 {
+            color: #087f83;
+            font-size: 20px;
+        }
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        label, .group-title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #087f83;
+            border-color: #087f83;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .gender-options label {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .gender-options input {
+            width: auto;
+            accent-color: #087f83;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #087f83;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #06676a;
+        }
+
+        button:focus-visible {
+            outline: 3px solid orange;
+            outline-offset: 3px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>CarePoint Hospital</h1>
+            <p>Your Health, Our Priority</p>
+        </header>
+
+        <section>
+            <h2>Book Your Appointment</h2>
+            <p>Please fill in your details to schedule a consultation.</p>
+
+            <form action="#" method="post">
+
+                <div class="field">
+                    <label for="name">Patient Name</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="Enter your email" required>
+                </div>
+
+                <div class="field">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone"
+                           pattern="[0-9]{10}"
+                           placeholder="Enter 10-digit number" required>
+                </div>
+
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age"
+                           min="1" max="120"
+                           placeholder="Enter your age" required>
+                </div>
+
+                <div class="field">
+                    <span class="group-title">Gender</span>
+
+                    <div class="gender-options">
+                        <label>
+                            <input type="radio" name="gender"
+                                   value="Male" required>
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender"
+                                   value="Female">
+                            Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender"
+                                   value="Other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="department">Medical Department</label>
+                    <select id="department" name="department" required>
+                        <option value="">Choose Department</option>
+                        <option value="General Medicine">General Medicine</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Dermatology">Dermatology</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="doctor">Select Doctor</label>
+                    <select id="doctor" name="doctor" required>
+                        <option value="">Choose Doctor</option>
+                        <option value="Dr. Rahul">Dr. Rahul - General Medicine</option>
+                        <option value="Dr. Priya">Dr. Priya - Cardiology</option>
+                        <option value="Dr. Anil">Dr. Anil - Dental Care</option>
+                        <option value="Dr. Sneha">Dr. Sneha - Dermatology</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="date">Appointment Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="field">
+                    <label for="time">Preferred Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+
+                <div class="field">
+                    <label for="reason">Reason for Appointment</label>
+                    <textarea id="reason" name="reason"
+                              rows="3"
+                              placeholder="Describe your health concern"
+                              required></textarea>
+                </div>
+
+                <button type="submit">Book Appointment</button>
+
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CarePoint Hospital | All Rights Reserved</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
